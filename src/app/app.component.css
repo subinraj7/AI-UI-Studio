@@ -1,0 +1,90 @@
+.full-page {
+  min-height: 100vh; /* Occupy full viewport height */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  font-family: math;
+}
+
+.top-bar {
+  background-color: black;
+  color: white;
+  padding: 19px 20px;
+  display: flex;
+  margin: -9px;
+}
+
+.title {
+  font-size: 24px; /* Title font size */
+  margin: 0; /* Remove default margin */
+}
+
+.content-container {
+  flex: 1; /* Take up remaining space after top bar */
+  display: flex;
+  flex-wrap: wrap; /* Wrap chat and prototype containers if needed */
+  margin-top: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.animated-shadow {
+  animation: chat-shadow 2s ease-in-out infinite alternate;
+}
+
+@keyframes chat-shadow {
+  from {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  to {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.chat-container,
+.prototype-container {
+  flex: 1 1 50%; /* Equal width for both containers, minimum 50% */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px; /* Margin for spacing */
+}
+
+.chat-input,
+.design-input {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.chat-input input,
+.design-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.chat-input button,
+.design-input button {
+  padding: 10px 15px;
+  background-color: #4caf50; /* Green button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.ai-response,
+.mockup-image {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.ai-response {
+  background-color: #eee; /* Light gray background for AI response */
+}
+
+.mockup-image img {
+  max-width: 100%; /* Scale image to fit container */
+}

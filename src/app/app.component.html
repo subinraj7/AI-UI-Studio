@@ -1,0 +1,60 @@
+<div class="full-page">
+  <div class="top-bar">
+    <h1 class="title">CH-UI Studio</h1>
+  </div>
+  <div class="content-container">
+    <div class="chat-container animated-shadow">
+      <h2>Chat with CH-UI Studio</h2>
+      <div class="chat-input">
+        <input
+          type="text"
+          [(ngModel)]="userPrompt"
+          placeholder="Enter your question"
+        />
+        <button *ngIf="userPrompt" (click)="clearMessage()">Clear</button>
+        <button (click)="sendMessage()">Send</button>
+      </div>
+      <div *ngIf="aiResponse" class="ai-response">
+        {{ aiResponse }}
+      </div>
+    </div>
+
+    <div class="prototype-container">
+      <h2>Design Prototype</h2>
+      <div class="design-input">
+        <input
+          type="text"
+          [(ngModel)]="designPrompt"
+          placeholder="Describe your design (e.g., design a page with header and footer)"
+        />
+        <button (click)="generateMockup()">Generate Mockup</button>
+      </div>
+      <div *ngIf="mockupUrl" class="mockup-image">
+        <img [src]="mockupUrl" alt="AI-generated mockup" />
+        <a *ngIf="mockupUrl" [href]="mockupUrl" download="mockup.png"
+          >Download Image</a
+        >
+      </div>
+    </div>
+
+    <div class="prototype-container">
+      <h2>Code for the design</h2>
+      <div class="design-input">
+        <input
+          type="text"
+          [(ngModel)]="mockupUrl"
+          readonly
+          placeholder="Describe your design (e.g., design a page with header and footer)"
+        />
+        <button (click)="TestGeminiProVisionImages(mockupUrl || '')">
+          Generate Code
+        </button>
+      </div>
+      <div *ngIf="mockupUrl" class="mockup-image">
+        {{ codeGenerated }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
